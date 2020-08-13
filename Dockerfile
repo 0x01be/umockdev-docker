@@ -25,5 +25,9 @@ FROM alpine
 
 COPY --from=builder /opt/umockdev/ /opt/umockdev/
 
+RUN apk add --no-cache --virtual umockdev-runtime-dependencies \
+    glib \
+    udev
+
 ENV PATH $PATH:/opt/umockdev/bin/
 
